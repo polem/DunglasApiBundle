@@ -46,8 +46,9 @@ class DateFilterTest extends KernelTestCase
     protected function setUp()
     {
         self::bootKernel();
+        $kerner = self::$kernel;
         $manager = DoctrineTestHelper::createTestEntityManager();
-        $this->managerRegistry = self::$kernel->getContainer()->get('doctrine');
+        $this->managerRegistry = $kernel->getContainer()->get('doctrine');
         $this->repository = $manager->getRepository(Dummy::class);
         $this->resource = new Resource(Dummy::class);
     }
