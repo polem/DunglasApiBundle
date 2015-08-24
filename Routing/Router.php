@@ -72,7 +72,7 @@ class Router implements RouterInterface
             $this->router->setContext($context);
 
             return $this->router->match($request->getPathInfo());
-        } finally {
+        } catch(\Exception $e) {
             $this->router->setContext($baseContext);
         }
     }
